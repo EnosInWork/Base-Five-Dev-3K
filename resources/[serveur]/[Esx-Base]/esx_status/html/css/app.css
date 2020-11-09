@@ -1,0 +1,36 @@
+#status_list {
+    position: absolute;
+	margin: 1.12%;
+	margin-left: 2%;
+    left: -0.50%;
+    top:77.8%;
+    width: 14.05%;
+    display: flex;
+    height: 0.9%;
+    float:left;
+}
+
+.status {
+    padding: 0%;
+    flex: auto;
+/*     border-left: 0.75px solid #1c1d20;
+    border-right: 0.75px solid #1c1d20;
+    border-top: 1px solid #1c1d20;
+    border-bottom: 1px solid #1c1d20; */
+    border: 1.8px solid rgba(0, 0, 0, 0.425);
+    height: 110%;
+}
+
+.status_inner {
+    padding: 0%;
+    background-color:#535461;
+    height: 100%;
+}
+
+.status_val {
+    height: 100%;
+}
+body {
+    color: #68eb63;
+    overflow:hidden;
+}

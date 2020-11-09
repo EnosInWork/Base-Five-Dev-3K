@@ -1,0 +1,5 @@
+{
+	"date": "July 17, 2020",
+	"version": "1.1.0",
+	"changelog": "Reworked Export functions (now with identifier support)"
+}

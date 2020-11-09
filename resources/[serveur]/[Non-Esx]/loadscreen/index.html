@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- Don't mind the mess.
+
+********************************************************************
+CONTACT: Root
+********************************************************************
+Github: https://github.com/root-v
+Discord: Root#0190
+Discord Server: https://discord.gg/2upVXwv
+
+!-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	
+    <title>Root</title>				    
+<style type="text/css">
+body { color: #ffffff; background: #000000; }
+</style>
+
+<!-- CSS Style for the background slider -->
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header>
+
+</p></div>
+			<!-- Loader (for some reason this refuses to use CSS) -->
+<div id="loading"><p style="position: absolute; right: -50px; bottom: -20px; border:0px; border-style:solid; border-color:; backgrund: ; padding: 0.5em; width: 250px; opacity: 0.85;"><font face="revamped" size="1">Connexion en cours...</font><font color="#000000"></font><img src="img/loading.gif" style="width:35px;height:35px;"></p></div>
+			<!-- END LOADER -->
+
+
+			<!-- Background music -->
+    			</div>
+		<div class="textcopy">Five-Dev &copy; 2020</div>
+		<audio id="leson" src="music/loadscreen.mp3" autoplay="true" hidden="true" loop="true"/>
+		<script>
+	
+
+    var play = true;
+    var myAudio = document.getElementById("leson");
+    
+    myAudio.volume = 0.1;
+	
+	
+    function onKeyDown(event) {
+            switch (event.keyCode) {
+                case 32: //SpaceBar                    
+                    if (play) {
+                        myAudio.pause();
+                        play = false;
+                    } else {
+                        myAudio.play();
+                        play = true;
+                    }
+                    break;
+            }
+      return false;
+    }
+    window.addEventListener("keydown", onKeyDown, false);
+    </script>
+</body>
+	        <!-- END BACKGROUND MUSIC -->
+
+			<!-- Infobox slider -->
+<script>			var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("infoboxslide");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 10000); // Change image every 10 seconds
+}
+</script>
+<!-- END INFOBOX SLIDER -->			
+			
+<!-- Background Slider -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/jquery.backstretch.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.ajaxchimp.js"></script>
+  <script src="js/lj-safety-first.js"></script>
+  <!-- END BACKGROUND SLIDER -->
+
+<!-- Loadscreen time out -->
+    <script>
+        var timer = setTimeout(function() {
+            window.location='timeout.html' <!-- redirection path -->
+        }, 145000); <!-- Time out in milliseconds before redirect -->
+    </script>
+	        <!-- END LOADSCREEN TIME OUT -->  
+  </body>
+</html>

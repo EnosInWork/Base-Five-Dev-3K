@@ -1,0 +1,1 @@
+print("PNJ réduit | Larko#0002")
