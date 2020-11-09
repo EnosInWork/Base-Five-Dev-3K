@@ -1,5 +1,7 @@
 # Base-Five-Dev-3K
 
+Discord Five-Dev : https://discord.gg/pRXCnA8
+
 Bonjour/Bonsoir à tous, 
 
 Enfin disponible, la base spécialement conçue pour les 3,000 membres de Five-Dev. Merci à vous
