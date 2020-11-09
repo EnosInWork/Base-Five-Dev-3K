@@ -28,7 +28,7 @@ Contenue de la base:
 - Annonce ( Disponible pour tout les métiers ) 
 - Jobs pompier
 - vMenu ( Voir server.cfg tout en bas )
-
+- Disponible également sur la base : /twt /fb /insta /ano /lspd /ems /meca /amu /immo /gouv /sheriff /taxi pour faire des annonces
 
 Chemins d'accès : 
 
@@ -44,3 +44,7 @@ Changer le Five-Dev sur le téléphone : [Non-Esx] > [Téléphone] > gcphone > h
 Où trouver le LoadingScreen : [Non-Esx] >> loadscreen
 
 Où trouver le PNJ d'armes illégaux: [Illégal] > [Arme] >> illegal_shop
+
+Mettre votre lien discord pour le F5 > Rejoindre le discord : [Non-Esx] > UtilsCore >> client.lua
+
+
