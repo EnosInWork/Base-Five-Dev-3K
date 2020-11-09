@@ -1,6 +1,3 @@
----@type table
-RageUI.LastControl = false
-
 ---IsMouseInBounds
 ---@param X number
 ---@param Y number
@@ -9,7 +6,7 @@ RageUI.LastControl = false
 ---@return number
 ---@public
 function RageUI.IsMouseInBounds(X, Y, Width, Height)
-    local MX, MY = math.round(GetControlNormal(2, 239) * 1920) / 1920, math.round(GetControlNormal(2, 240) * 1080) / 1080
+    local MX, MY = math.round(GetControlNormal(0, 239) * 1920) / 1920, math.round(GetControlNormal(0, 240) * 1080) / 1080
     X, Y = X / 1920, Y / 1080
     Width, Height = Width / 1920, Height / 1080
     return (MX >= X and MX <= X + Width) and (MY > Y and MY < Y + Height)
@@ -28,6 +25,7 @@ function RageUI.GetSafeZoneBounds()
 
     return { X = math.round(SafeSize * ((W / H) * 5.4)), Y = math.round(SafeSize * 5.4) }
 end
+
 ---GoUp
 ---@param Options number
 ---@return nil
@@ -63,10 +61,6 @@ function RageUI.GoUp(Options)
 
                 local Audio = RageUI.Settings.Audio
                 RageUI.PlaySound(Audio[Audio.Use].UpDown.audioName, Audio[Audio.Use].UpDown.audioRef)
-                RageUI.LastControl = true
-                if (RageUI.CurrentMenu.onIndexChange ~= nil) then
-                    RageUI.CurrentMenu.onIndexChange(RageUI.CurrentMenu.Index)
-                end
             else
                 local Audio = RageUI.Settings.Audio
                 RageUI.PlaySound(Audio[Audio.Use].Error.audioName, Audio[Audio.Use].Error.audioRef)
@@ -109,10 +103,6 @@ function RageUI.GoDown(Options)
                 end
                 local Audio = RageUI.Settings.Audio
                 RageUI.PlaySound(Audio[Audio.Use].UpDown.audioName, Audio[Audio.Use].UpDown.audioRef)
-                RageUI.LastControl = false
-                if (RageUI.CurrentMenu.onIndexChange ~= nil) then
-                    RageUI.CurrentMenu.onIndexChange(RageUI.CurrentMenu.Index)
-                end
             else
                 local Audio = RageUI.Settings.Audio
                 RageUI.PlaySound(Audio[Audio.Use].Error.audioName, Audio[Audio.Use].Error.audioRef)
@@ -420,7 +410,7 @@ function RageUI.Navigation()
     if RageUI.CurrentMenu ~= nil then
         if RageUI.CurrentMenu() then
             if RageUI.CurrentMenu.EnableMouse then
-                SetMouseCursorActiveThisFrame()
+                ShowCursorThisFrame()
             end
             if RageUI.Options > RageUI.CurrentMenu.Pagination.Total then
 

@@ -14,14 +14,13 @@ local Percentage = {
 ---@param MinText string
 ---@param MaxText string
 ---@param Callback function
----@param Index number
 ---@return nil
 ---@public
-function RageUI.PercentagePanel(Percent, HeaderText, MinText, MaxText, Callback, Index)
+function RageUI.PercentagePanel(Index, Percent, HeaderText, MinText, MaxText, Callback)
     local CurrentMenu = RageUI.CurrentMenu
 
     if CurrentMenu ~= nil then
-        if CurrentMenu() and (Index == nil or (CurrentMenu.Index == Index)) then
+        if CurrentMenu() and (CurrentMenu.Index == Index) then
 
             ---@type boolean
             local Hovered = RageUI.IsMouseInBounds(CurrentMenu.X + Percentage.Bar.X + CurrentMenu.SafeZoneSize.X, CurrentMenu.Y + Percentage.Bar.Y + CurrentMenu.SafeZoneSize.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset - 4, Percentage.Bar.Width + CurrentMenu.WidthOffset, Percentage.Bar.Height + 8)
@@ -52,7 +51,7 @@ function RageUI.PercentagePanel(Percent, HeaderText, MinText, MaxText, Callback,
                 if IsDisabledControlPressed(0, 24) then
                     Selected = true
 
-                    Progress = math.round(GetControlNormal(2, 239) * 1920) - CurrentMenu.SafeZoneSize.X - (CurrentMenu.X + Percentage.Bar.X + (CurrentMenu.WidthOffset / 2))
+                    Progress = math.round(GetControlNormal(0, 239) * 1920) - CurrentMenu.SafeZoneSize.X - (CurrentMenu.X + Percentage.Bar.X + (CurrentMenu.WidthOffset / 2))
 
                     if Progress < 0 then
                         Progress = 0

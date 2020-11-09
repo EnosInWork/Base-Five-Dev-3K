@@ -53,7 +53,7 @@ function RageUI.Progress(Label, ProgressStart, ProgressMax, Description, Counter
                 local Hovered = false;
 
                 ---@type boolean
-                if CurrentMenu.EnableMouse == true and (CurrentMenu.CursorStyle == 0) or (CurrentMenu.CursorStyle == 1) then
+                if CurrentMenu.EnableMouse == true then
                     Hovered = RageUI.ItemsMouseBounds(CurrentMenu, Selected, Option, SettingsButton);
                 end
 
@@ -120,7 +120,7 @@ function RageUI.Progress(Label, ProgressStart, ProgressMax, Description, Counter
                 elseif Selected and (Hovered and CurrentMenu.Controls.Click.Active and ProgressHovered) then
 
                     ---@type number
-                    local Progress = (math.round(GetControlNormal(2, 239) * 1920) - CurrentMenu.SafeZoneSize.X) - SettingsProgress.Bar.X
+                    local Progress = (math.round(GetControlNormal(0, 239) * 1920) - CurrentMenu.SafeZoneSize.X) - SettingsProgress.Bar.X
 
                     ---@type number
                     local Barsize = SettingsProgress.Bar.Width + CurrentMenu.WidthOffset

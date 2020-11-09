@@ -1,286 +1,235 @@
 RageUI.BadgeStyle = {
-    -- DEFAULT BADGE
-    None = function()
-        return {
-            BadgeTexture = "",
-            BadgeDictionary = "commonmenu"
-        }
-    end,
-    BronzeMedal = function()
-        return {
-            BadgeTexture = "mp_medal_bronze",
-        }
-    end,
-    GoldMedal = function()
-        return {
-            BadgeTexture = "mp_medal_gold",
-        }
-    end,
-    SilverMedal = function()
-        return {
-            BadgeTexture = "medal_silver",
-        }
-    end,
-    Alert = function()
-        return {
-            BadgeTexture = "mp_alerttriangle",
-        }
-    end,
-    Crown = function(Selected)
-        return {
-            BadgeTexture = "mp_hostcrown",
-            BadgeColour = Selected and { R = 0, G = 0, B = 0, A = 255 } or { R = 255, G = 255, B = 255, A = 255 }
-        }
-    end,
-    Ammo = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_ammo_icon_b" or "shop_ammo_icon_a",
-        }
-    end,
-    Armour = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_armour_icon_b" or "shop_armour_icon_a",
-        }
-    end,
-    Barber = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_barber_icon_b" or "shop_barber_icon_a",
-        }
-    end,
-    Clothes = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_clothing_icon_b" or "shop_clothing_icon_a",
-        }
-    end,
-    Franklin = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_franklin_icon_b" or "shop_franklin_icon_a",
-        }
-    end,
-    Bike = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_garage_bike_icon_b" or "shop_garage_bike_icon_a",
-        }
-    end,
-    Car = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_garage_icon_b" or "shop_garage_icon_a",
-        }
-    end,
-    Boat = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_boat_black" or "mp_specitem_boat",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Heli = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_heli_black" or "mp_specitem_heli",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Plane = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_plane_black" or "mp_specitem_plane",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    BoatPickup = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_boatpickup_black" or "mp_specitem_boatpickup",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Card = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_keycard_black" or "mp_specitem_keycard",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Gun = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_gunclub_icon_b" or "shop_gunclub_icon_a",
-        }
-    end,
-    Heart = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_health_icon_b" or "shop_health_icon_a",
-        }
-    end,
-    Makeup = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_makeup_icon_b" or "shop_makeup_icon_a",
-        }
-    end,
-    Mask = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_mask_icon_b" or "shop_mask_icon_a",
-        }
-    end,
-    Michael = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_michael_icon_b" or "shop_michael_icon_a",
-        }
-    end,
-    Star = function()
-        return {
-            BadgeTexture = "shop_new_star",
-        }
-    end,
-    Tattoo = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_tattoos_icon_b" or "shop_tattoos_icon_a",
-        }
-    end,
-    Trevor = function(Selected)
-        return {
-            BadgeTexture = Selected and "shop_trevor_icon_b" or "shop_trevor_icon_a",
-        }
-    end,
-    Lock = function(Selected)
-        return {
-            BadgeTexture = "shop_lock",
-            BadgeColour = Selected and { R = 0, G = 0, B = 0, A = 255 } or { R = 255, G = 255, B = 255, A = 255 }
-        }
-    end,
-    Tick = function(Selected)
-        return {
-            BadgeTexture = "shop_tick_icon",
-            BadgeColour = Selected and { R = 0, G = 0, B = 0, A = 255 } or { R = 255, G = 255, B = 255, A = 255 }
-        }
-    end,
-    Key = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_cuffkeys_black" or "mp_specitem_cuffkeys",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Coke = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_coke_black" or "mp_specitem_coke",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Heroin = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_heroin_black" or "mp_specitem_heroin",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Meth = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_meth_black" or "mp_specitem_meth",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Weed = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_weed_black" or "mp_specitem_weed",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Package = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_package_black" or "mp_specitem_package",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    Cash = function(Selected)
-        return {
-            BadgeTexture = Selected and "mp_specitem_cash_black" or "mp_specitem_cash",
-            BadgeDictionary = "mpinventory"
-        }
-    end,
-    RP = function(Selected)
-        return {
-            BadgeTexture = "mp_anim_rp",
-            BadgeDictionary = "mphud"
-        }
-    end,
-    LSPD = function()
-        return {
-            BadgeTexture = "mpgroundlogo_cops",
-            BadgeDictionary = "3dtextures"
-        }
-    end,
-    Vagos = function()
-        return {
-            BadgeTexture = "mpgroundlogo_vagos",
-            BadgeDictionary = "3dtextures"
-        }
-    end,
-    Bikers = function()
-        return {
-            BadgeTexture = "mpgroundlogo_bikers",
-            BadgeDictionary = "3dtextures"
-        }
-    end,
+    None = 1,
+    BronzeMedal = 2,
+    GoldMedal = 3,
+    SilverMedal = 4,
+    Alert = 5,
+    Crown = 6,
+    Ammo = 7,
+    Armour = 8,
+    Barber = 9,
+    Clothes = 10,
+    Franklin = 11,
+    Bike = 12,
+    Car = 13,
+    Gun = 14,
+    Heart = 15,
+    Makeup = 16,
+    Mask = 17,
+    Michael = 18,
+    Star = 19,
+    Tattoo = 20,
+    Trevor = 21,
+    Lock = 22,
+    Tick = 23
+}
 
-    -- CASINO
-    Badbeat = function()
-        return {
-            BadgeTexture = "badbeat",
-            BadgeDictionary = "mpawardcasino"
-        }
+RageUI.BadgeTexture = {
+    [1] = function()
+        return ""
     end,
-    CashingOut = function()
-        return {
-            BadgeTexture = "cashingout",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [2] = function()
+        return "mp_medal_bronze"
     end,
-    FullHouse = function()
-        return {
-            BadgeTexture = "fullhouse",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [3] = function()
+        return "mp_medal_gold"
     end,
-    HighRoller = function()
-        return {
-            BadgeTexture = "highroller",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [4] = function()
+        return "medal_silver"
     end,
-    HouseKeeping = function()
-        return {
-            BadgeTexture = "housekeeping",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [5] = function()
+        return "mp_alerttriangle"
     end,
-    LooseCheng = function()
-        return {
-            BadgeTexture = "loosecheng",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [6] = function()
+        return "mp_hostcrown"
     end,
-    LuckyLucky = function()
-        return {
-            BadgeTexture = "luckylucky",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [7] = function(Selected)
+        if Selected then
+            return "shop_ammo_icon_b"
+        else
+            return "shop_ammo_icon_a"
+        end
     end,
-    PlayToWin = function()
-        return {
-            BadgeTexture = "playtowin",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [8] = function(Selected)
+        if Selected then
+            return "shop_armour_icon_b"
+        else
+            return "shop_armour_icon_a"
+        end
     end,
-    StraightFlush = function()
-        return {
-            BadgeTexture = "straightflush",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [9] = function(Selected)
+        if Selected then
+            return "shop_barber_icon_b"
+        else
+            return "shop_barber_icon_a"
+        end
     end,
-    StrongArmTactics = function()
-        return {
-            BadgeTexture = "strongarmtactics",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [10] = function(Selected)
+        if Selected then
+            return "shop_clothing_icon_b"
+        else
+            return "shop_clothing_icon_a"
+        end
     end,
-    TopPair = function()
-        return {
-            BadgeTexture = "toppair",
-            BadgeDictionary = "mpawardcasino"
-        }
+    [11] = function(Selected)
+        if Selected then
+            return "shop_franklin_icon_b"
+        else
+            return "shop_franklin_icon_a"
+        end
+    end,
+    [12] = function(Selected)
+        if Selected then
+            return "shop_garage_bike_icon_b"
+        else
+            return "shop_garage_bike_icon_a"
+        end
+    end,
+    [13] = function(Selected)
+        if Selected then
+            return "shop_garage_icon_b"
+        else
+            return "shop_garage_icon_a"
+        end
+    end,
+    [14] = function(Selected)
+        if Selected then
+            return "shop_gunclub_icon_b"
+        else
+            return "shop_gunclub_icon_a"
+        end
+    end,
+    [15] = function(Selected)
+        if Selected then
+            return "shop_health_icon_b"
+        else
+            return "shop_health_icon_a"
+        end
+    end,
+    [16] = function(Selected)
+        if Selected then
+            return "shop_makeup_icon_b"
+        else
+            return "shop_makeup_icon_a"
+        end
+    end,
+    [17] = function(Selected)
+        if Selected then
+            return "shop_mask_icon_b"
+        else
+            return "shop_mask_icon_a"
+        end
+    end,
+    [18] = function(Selected)
+        if Selected then
+            return "shop_michael_icon_b"
+        else
+            return "shop_michael_icon_a"
+        end
+    end,
+    [19] = function()
+        return "shop_new_star"
+    end,
+    [20] = function(Selected)
+        if Selected then
+            return "shop_tattoos_icon_b"
+        else
+            return "shop_tattoos_icon_a"
+        end
+    end,
+    [21] = function(Selected)
+        if Selected then
+            return "shop_trevor_icon_b"
+        else
+            return "shop_trevor_icon_a"
+        end
+    end,
+    [22] = function()
+        return "shop_lock"
+    end,
+    [23] = function()
+        return "shop_tick_icon"
     end,
 }
+
+RageUI.BadgeDictionary = {
+    [1] = function(Selected)
+        if Selected then
+            return "commonmenu"
+        else
+            return "commonmenu"
+        end
+    end,
+}
+
+RageUI.BadgeColour = {
+    [6] = function(Selected)
+        if Selected then
+            return 0, 0, 0, 255
+        else
+            return 255, 255, 255, 255
+        end
+    end,
+    [22] = function(Selected)
+        if Selected then
+            return 0, 0, 0, 255
+        else
+            return 255, 255, 255, 255
+        end
+    end,
+    [23] = function(Selected)
+        if Selected then
+            return 0, 0, 0, 255
+        else
+            return 255, 255, 255, 255
+        end
+    end,
+}
+
+---GetBadgeTexture
+---@param Badge string
+---@param Selected boolean
+---@return table
+---@public
+function RageUI.GetBadgeTexture(Badge, Selected)
+    if RageUI.BadgeTexture[Badge] then
+        return RageUI.BadgeTexture[Badge](Selected)
+    else
+        return ""
+    end
+end
+
+
+function RageUI.CurrentIsEqualTo(Current, To, Style, DefaultStyle)
+    if (Current == To) then
+        return Style;
+    else
+        return DefaultStyle or {};
+    end
+end
+
+---GetBadgeDictionary
+---@param Badge string
+---@param Selected boolean
+---@return table
+---@public
+function RageUI.GetBadgeDictionary(Badge, Selected)
+    if RageUI.BadgeDictionary[Badge] then
+        return RageUI.BadgeDictionary[Badge](Selected)
+    else
+        return "commonmenu"
+    end
+end
+
+---GetBadgeColour
+---@param Badge string
+---@param Selected boolean
+---@return table
+---@public
+function RageUI.GetBadgeColour(Badge, Selected)
+    if RageUI.BadgeColour[Badge] then
+        return RageUI.BadgeColour[Badge](Selected)
+    else
+        return 255, 255, 255, 255
+    end
+end

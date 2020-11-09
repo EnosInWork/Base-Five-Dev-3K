@@ -27,7 +27,7 @@ end
 ---@param ItemIndex number
 ---@param Description string
 ---@param Callback function
-function RageUI.UISliderHeritage(Label, ItemIndex, Description, Callback, Value)
+function RageUI.UISliderHeritage(Label, ItemIndex, Description, Callback)
 
     ---@type table
     local CurrentMenu = RageUI.CurrentMenu;
@@ -42,7 +42,6 @@ function RageUI.UISliderHeritage(Label, ItemIndex, Description, Callback, Value)
             if CurrentMenu.Pagination.Minimum <= Option and CurrentMenu.Pagination.Maximum >= Option then
 
                 ---@type number
-                local value = Value or 0.1
                 local Selected = CurrentMenu.Index == Option
 
                 ---@type boolean
@@ -54,7 +53,7 @@ function RageUI.UISliderHeritage(Label, ItemIndex, Description, Callback, Value)
                 local RightOffset = 0
 
                 ---@type boolean
-                if CurrentMenu.EnableMouse == true and (CurrentMenu.CursorStyle == 0) or (CurrentMenu.CursorStyle == 1) then
+                if CurrentMenu.EnableMouse == true then
                     Hovered = RageUI.ItemsMouseBounds(CurrentMenu, Selected, Option, SettingsButton);
                 end
 
@@ -88,14 +87,14 @@ function RageUI.UISliderHeritage(Label, ItemIndex, Description, Callback, Value)
                 RageUI.ItemsDescription(CurrentMenu, Description, Selected);
 
                 if Selected and (CurrentMenu.Controls.SliderLeft.Active or (CurrentMenu.Controls.Click.Active and LeftArrowHovered)) and not (CurrentMenu.Controls.SliderRight.Active or (CurrentMenu.Controls.Click.Active and RightArrowHovered)) then
-                    ItemIndex = ItemIndex - value
+                    ItemIndex = ItemIndex - 0.1
                     if ItemIndex < 0.1 then
                         ItemIndex = 0.0
                     else
                         RageUI.PlaySound(Audio[Audio.Use].Slider.audioName, Audio[Audio.Use].Slider.audioRef, true)
                     end
                 elseif Selected and (CurrentMenu.Controls.SliderRight.Active or (CurrentMenu.Controls.Click.Active and RightArrowHovered)) and not (CurrentMenu.Controls.SliderLeft.Active or (CurrentMenu.Controls.Click.Active and LeftArrowHovered)) then
-                    ItemIndex = ItemIndex + value
+                    ItemIndex = ItemIndex + 0.1
                     if ItemIndex > #Items then
                         ItemIndex = 10
                     else

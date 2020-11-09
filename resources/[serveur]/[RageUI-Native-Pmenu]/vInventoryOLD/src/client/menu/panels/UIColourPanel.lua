@@ -16,13 +16,13 @@ local Colour = {
 ---@param Callback function
 ---@return nil
 ---@public
-function RageUI.ColourPanel(Title, Colours, MinimumIndex, CurrentIndex, Callback, Index)
+function RageUI.ColourPanel(Index, Title, Colours, MinimumIndex, CurrentIndex, Callback)
 
     ---@type table
     local CurrentMenu = RageUI.CurrentMenu;
 
     if CurrentMenu ~= nil then
-        if CurrentMenu() and (Index == nil or (CurrentMenu.Index == Index)) then
+        if CurrentMenu() and (CurrentMenu.Index == Index) then
 
             ---@type number
             local Maximum = (#Colours > 9) and 9 or #Colours
@@ -54,8 +54,10 @@ function RageUI.ColourPanel(Title, Colours, MinimumIndex, CurrentIndex, Callback
             if Hovered or LeftArrowHovered or RightArrowHovered then
                 if RageUI.Settings.Controls.Click.Active then
                     Selected = true
+
                     if LeftArrowHovered then
                         CurrentIndex = CurrentIndex - 1
+
                         if CurrentIndex < 1 then
                             CurrentIndex = #Colours
                             MinimumIndex = #Colours - Maximum + 1
@@ -64,6 +66,7 @@ function RageUI.ColourPanel(Title, Colours, MinimumIndex, CurrentIndex, Callback
                         end
                     elseif RightArrowHovered then
                         CurrentIndex = CurrentIndex + 1
+
                         if CurrentIndex > #Colours then
                             CurrentIndex = 1
                             MinimumIndex = 1
@@ -80,10 +83,9 @@ function RageUI.ColourPanel(Title, Colours, MinimumIndex, CurrentIndex, Callback
                 end
             end
 
-
             RageUI.ItemOffset = RageUI.ItemOffset + Colour.Background.Height + Colour.Background.Y
 
-            if  (Hovered or LeftArrowHovered or RightArrowHovered) and RageUI.Settings.Controls.Click.Active then
+            if (Hovered or LeftArrowHovered or RightArrowHovered) and RageUI.Settings.Controls.Click.Active then
                 local Audio = RageUI.Settings.Audio
                 RageUI.PlaySound(Audio[Audio.Use].Select.audioName, Audio[Audio.Use].Select.audioRef)
             end

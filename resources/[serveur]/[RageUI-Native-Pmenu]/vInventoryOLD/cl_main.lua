@@ -174,45 +174,45 @@ function openMenu()
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'main'), true, true, true, function() 
 
-                    RageUI.ButtonWithStyle("Inventaire", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Inventaire", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                             end
                         end, RMenu:Get('inventory', 'inventory'))
 
-                    RageUI.ButtonWithStyle("Portefeuille", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Portefeuille", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                             end
                         end, RMenu:Get('inventory', 'portefeuille'))
 
-                    RageUI.ButtonWithStyle("Serveur", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Serveur", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                             end
                         end, RMenu:Get('inventory', 'utils'))
 
-                  --      RageUI.ButtonWithStyle("Vétements", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                  --      RageUI.Button("Vétements", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                     --        if Selected then
                       --          end
                         --    end, RMenu:Get('inventory', 'clothesbase'))
 
-                            RageUI.ButtonWithStyle("Divers", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                            RageUI.Button("Divers", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                                 if Selected then
                                     end
                                 end, RMenu:Get('inventory', 'divers'))
 
                     if IsPedSittingInAnyVehicle(VM.Ped) then
-                        RageUI.ButtonWithStyle("Gestion Véhicule", "Menu de votre véhicule", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                        RageUI.Button("Gestion Véhicule", "Menu de votre véhicule", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                             if Selected then
                                 end
                             end, RMenu:Get('inventory', 'voiture'))                       
                         else
-                            RageUI.ButtonWithStyle('Gestion Véhicule', description, {RightBadge = RageUI.BadgeStyle.Lock }, false, function(Hovered, Active, Selected)
+                            RageUI.Button('Gestion Véhicule', description, {RightBadge = RageUI.BadgeStyle.Lock }, false, function(Hovered, Active, Selected)
                                 if (Selected) then
                                     end 
                                 end)
                             end
 
                             if playerGroup ~= 'user' then
-                                RageUI.ButtonWithStyle("Administration", "Menu d'Administration", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                                RageUI.Button("Administration", "Menu d'Administration", {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                                 ESX.TriggerServerCallback('Nehco:getUsergroup', function(group)
                                 playerGroup = group
                          end)
@@ -242,7 +242,7 @@ function openMenu()
                     
                     RageUI.Separator("Etat du moteur~s~ =~b~ "..Vengine.."%")
 
-                    RageUI.ButtonWithStyle("~g~Allumer~s~/~r~Eteindre~s~ votre moteur", nil, {RightBadge = RageUI.BadgeStyle.Car}, true, function(Hovered,Active,Selected) 
+                    RageUI.Button("~g~Allumer~s~/~r~Eteindre~s~ votre moteur", nil, {RightBadge = RageUI.BadgeStyle.Car}, true, function(Hovered,Active,Selected) 
                         if Selected then
                             if GetIsVehicleEngineRunning(VM.V.VehPed) then
                                     SetVehicleEngineOn(VM.V.VehPed, false, false, true)
@@ -254,7 +254,7 @@ function openMenu()
                             end
                         end)
          
-                    RageUI.ButtonWithStyle("Gestion des portes", nil, {RightLabel = "→→"}, true, function(Hovered,Active,Selected) 
+                    RageUI.Button("Gestion des portes", nil, {RightLabel = "→→"}, true, function(Hovered,Active,Selected) 
                         if Selected then
                             end
                         end, RMenu:Get('inventory', 'voiture_porte'))                            
@@ -262,14 +262,14 @@ function openMenu()
                 end)
                 ----------------------------------------------------------------------------------
                 RageUI.IsVisible(RMenu:Get('inventory', 'voiture_porte'), true, true, true, function()
-                    RageUI.ButtonWithStyle("Ouvrir/Fermer Avant ~r~Gauche", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Ouvrir/Fermer Avant ~r~Gauche", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                                 SetVehicleDoorOpen(VM.V.VehPed, 0, VM.V.agauche)
                                     VM.V.agauche = not VM.V.agauche
                                 end
                             end)
 
-                    RageUI.ButtonWithStyle("Ouvrir/Fermer Avant ~g~Droite", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Ouvrir/Fermer Avant ~g~Droite", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                             if not VM.V.adroite then
                                 VM.V.adroite = true
@@ -281,7 +281,7 @@ function openMenu()
                             end
                         end)
 
-                    RageUI.ButtonWithStyle("Ouvrir/Fermer Ariére ~r~Gauche", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Ouvrir/Fermer Ariére ~r~Gauche", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                             if not VM.V.argauche then
                                 VM.V.argauche = true
@@ -293,7 +293,7 @@ function openMenu()
                             end
                         end)
 
-                    RageUI.ButtonWithStyle("Ouvrir/Fermer Ariére ~g~Droite", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("Ouvrir/Fermer Ariére ~g~Droite", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected)
                         if Selected then
                             if not VM.V.ardroite then
                                 VM.V.ardroite = true
@@ -305,7 +305,7 @@ function openMenu()
                             end
                         end)
 
-                        RageUI.ButtonWithStyle("Ouvrir/Fermer ~g~Capot", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected) 
+                        RageUI.Button("Ouvrir/Fermer ~g~Capot", nil, {RightLabel = "→"}, true, function(Hovered,Active,Selected) 
                             if Selected then
                                 if not VM.V.capot then
                                     VM.V.capot = true
@@ -323,12 +323,12 @@ function openMenu()
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'inventory'), true, true, true, function() 
 
-                    RageUI.ButtonWithStyle("Items", "Accédez à la partit item de votre inventaire", {RightLabel = "→"}, true, function(Hovered, Actice, Selected)
+                    RageUI.Button("Items", "Accédez à la partit item de votre inventaire", {RightLabel = "→"}, true, function(Hovered, Actice, Selected)
                         if (Selected) then
                             end
                         end, RMenu:Get('inventory', 'inventaire'))
 
-                    RageUI.ButtonWithStyle("Armes", "Accédez à la partit arme de votre inventaire", {RightLabel = "→"}, true, function(Hovered, Actice, Selected)
+                    RageUI.Button("Armes", "Accédez à la partit arme de votre inventaire", {RightLabel = "→"}, true, function(Hovered, Actice, Selected)
                         if (Selected) then
                             end
                         end, RMenu:Get('inventory', 'weapon'))
@@ -341,7 +341,7 @@ function openMenu()
                     ESX.PlayerData = ESX.GetPlayerData()
                     for i = 1, #ESX.PlayerData.inventory do
                         if ESX.PlayerData.inventory[i].count > 0 then
-                            RageUI.ButtonWithStyle('[~r~' ..ESX.PlayerData.inventory[i].count.. '~s~] ~b~- ~s~' ..ESX.PlayerData.inventory[i].label, nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected) 
+                            RageUI.Button('[~r~' ..ESX.PlayerData.inventory[i].count.. '~s~] ~b~- ~s~' ..ESX.PlayerData.inventory[i].label, nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected) 
                                 if (Selected) then 
                                     VM.ItemSelected = ESX.PlayerData.inventory[i]
                                     end 
@@ -358,7 +358,7 @@ function openMenu()
                         if HasPedGotWeapon(VM.Ped, VM.WeaponData[i].hash, false) then
                             local ammo = GetAmmoInPedWeapon(VM.Ped, VM.WeaponData[i].hash)
             
-                            RageUI.ButtonWithStyle('[~r~' ..ammo.. '~s~] ~b~- ~s~' ..VM.WeaponData[i].label, nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                            RageUI.Button('[~r~' ..ammo.. '~s~] ~b~- ~s~' ..VM.WeaponData[i].label, nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                                 if (Selected) then
                                     VM.ItemSelected = VM.WeaponData[i]
                                 end
@@ -370,7 +370,7 @@ function openMenu()
                 ----------------------------------------------------------------------------------
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'weapon_use'), true, true, true, function() 
-                    RageUI.ButtonWithStyle('Donner des ~r~munitions', nil, {RightBadge = RageUI.BadgeStyle.Ammo}, true, function(Hovered, Active, Selected)
+                    RageUI.Button('Donner des ~r~munitions', nil, {RightBadge = RageUI.BadgeStyle.Ammo}, true, function(Hovered, Active, Selected)
                         if (Selected) then
                             local post, quantity = CheckQuantity(KeyboardInput('Nombre de munitions', '180'), '', 8)
     
@@ -413,7 +413,7 @@ function openMenu()
                         end
                     end)
                     
-                    RageUI.ButtonWithStyle("Jeter ~g~l'arme", nil, {RightBadge = RageUI.BadgeStyle.Gun}, true, function(Hovered, Active, Selected)
+                    RageUI.Button("Jeter ~g~l'arme", nil, {RightBadge = RageUI.BadgeStyle.Gun}, true, function(Hovered, Active, Selected)
                         if Selected then
                             if IsPedOnFoot(VM.Ped) then
                                 TriggerServerEvent('esx:removeInventoryItem', 'item_weapon', VM.ItemSelected.name)
@@ -425,7 +425,7 @@ function openMenu()
                     end)
 
                     if HasPedGotWeapon(VM.Ped, VM.ItemSelected.hash, false) then
-                        RageUI.ButtonWithStyle("Donner ~g~l'arme", nil, {RightBadge = RageUI.BadgeStyle.Gun}, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Donner ~g~l'arme", nil, {RightBadge = RageUI.BadgeStyle.Gun}, true, function(Hovered, Active, Selected)
                             if Selected then
                                 local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
     
@@ -458,7 +458,7 @@ function openMenu()
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'inventaire_use'), true, true, true, function()
                     
-                    RageUI.ButtonWithStyle("Utiliser ~g~l'item", nil, {RightBadge = RageUI.BadgeStyle.Heart}, true, function(Hovered, Active, Selected)
+                    RageUI.Button("Utiliser ~g~l'item", nil, {RightBadge = RageUI.BadgeStyle.Heart}, true, function(Hovered, Active, Selected)
                         if (Selected) then
                            -- local NumerItems = KeyboardInput("Combiens d'items voulez-vous utiliser ?", "", 3)
                          if VM.ItemSelected.usable then
@@ -469,7 +469,7 @@ function openMenu()
                             end
                         end) 
 
-                        RageUI.ButtonWithStyle("Jeter ~r~l'item", nil, {RightBadge = RageUI.BadgeStyle.Alert}, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Jeter ~r~l'item", nil, {RightBadge = RageUI.BadgeStyle.Alert}, true, function(Hovered, Active, Selected)
                             if (Selected) then
                                 if VM.ItemSelected.canRemove then
                                     local post,quantity = CheckQuantity(KeyboardInput("Nombres d'items que vous voulez jeter", '', '', 100))
@@ -483,7 +483,7 @@ function openMenu()
                             end
                         end)
 
-                        RageUI.ButtonWithStyle("Donner ~g~l'items", nil, {RightBadge = RageUI.BadgeStyle.Tick}, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Donner ~g~l'items", nil, {RightBadge = RageUI.BadgeStyle.Tick}, true, function(Hovered, Active, Selected)
                             if (Selected) then
                                 local sonner,quantity = CheckQuantity(KeyboardInput("Nombres d'items que vous voulez donner", '', '', 100))
                                 local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
@@ -517,14 +517,14 @@ function openMenu()
                     ESX.TriggerServerCallback('VInventory:billing', function(bills) VM.billing = bills end)
 
                     if #VM.billing == 0 then
-                        RageUI.ButtonWithStyle("Aucune facture", nil, { RightLabel = "→" }, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Aucune facture", nil, { RightLabel = "→" }, true, function(Hovered, Active, Selected)
                             if (Selected) then
                             end
                         end)
                     end
                         
                     for i = 1, #VM.billing, 1 do
-                    RageUI.ButtonWithStyle(VM.billing[i].label, nil, {RightLabel = '[~b~$' .. ESX.Math.GroupDigits(VM.billing[i].amount.."~s~] →")}, true, function(Hovered,Active,Selected)
+                    RageUI.Button(VM.billing[i].label, nil, {RightLabel = '[~b~$' .. ESX.Math.GroupDigits(VM.billing[i].amount.."~s~] →")}, true, function(Hovered,Active,Selected)
                         if Selected then
                                 ESX.TriggerServerCallback('esx_billing:payBill', function()
                                 ESX.TriggerServerCallback('VInventory:billing', function(bills) VM.billing = bills end)
@@ -539,36 +539,36 @@ function openMenu()
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'portefeuille'), true, true, true, function()
 
-                    RageUI.ButtonWithStyle("Emplois", nil, {RightLabel = "~b~"..ESX.PlayerData.job.label .."~s~ →"}, true, function(Hovered, Active, Selected)
+                    RageUI.Button("Emplois", nil, {RightLabel = "~b~"..ESX.PlayerData.job.label .."~s~ →"}, true, function(Hovered, Active, Selected)
                         if Selected then
                         end
                     end, RMenu:Get('inventory', 'portefeuille_work'))
 
-                    RageUI.ButtonWithStyle('Liquide', description, {RightLabel = "~g~$"..ESX.Math.GroupDigits(ESX.PlayerData.money.."~s~ →")}, true, function(Hovered, Active, Selected) 
+                    RageUI.Button('Liquide', description, {RightLabel = "~g~$"..ESX.Math.GroupDigits(ESX.PlayerData.money.."~s~ →")}, true, function(Hovered, Active, Selected) 
                         if (Selected) then 
                             end 
                         end, RMenu:Get('inventory', 'portefeuille_money'))
 
-                    RageUI.ButtonWithStyle('Facture', description, {RightLabel = "→"}, true, function(Hovered, Active, Selected) 
+                    RageUI.Button('Facture', description, {RightLabel = "→"}, true, function(Hovered, Active, Selected) 
                         if (Selected) then 
                             end 
                         end, RMenu:Get('inventory', 'portefeuille_billing'))
             
                     for i = 1, #ESX.PlayerData.accounts, 1 do
                         if ESX.PlayerData.accounts[i].name == 'bank'  then
-                            VM.bank = RageUI.ButtonWithStyle('Banque', description, {RightLabel = "~b~$"..ESX.Math.GroupDigits(ESX.PlayerData.accounts[i].money.."~s~")}, true, function(Hovered, Active, Selected) 
+                            VM.bank = RageUI.Button('Banque', description, {RightLabel = "~b~$"..ESX.Math.GroupDigits(ESX.PlayerData.accounts[i].money.."~s~")}, true, function(Hovered, Active, Selected) 
                                 if (Selected) then 
                                         end 
                                     end)
 
                     for i = 1, #ESX.PlayerData.accounts, 1 do
                         if ESX.PlayerData.accounts[i].name == 'black_money'  then
-                            VM.sale = RageUI.ButtonWithStyle('Non déclaré', description, {RightLabel = "~r~$"..ESX.Math.GroupDigits(ESX.PlayerData.accounts[i].money.."~s~ →")}, true, function(Hovered, Active, Selected) 
+                            VM.sale = RageUI.Button('Non déclaré', description, {RightLabel = "~r~$"..ESX.Math.GroupDigits(ESX.PlayerData.accounts[i].money.."~s~ →")}, true, function(Hovered, Active, Selected) 
                                 if (Selected) then 
                                         end 
                                     end, RMenu:Get('inventory', 'portefeuille_use'))
 
-                                    RageUI.ButtonWithStyle(('~b~Montrer ~s~ça carte d\'identité'), nil, {}, true, function(Hovered, Active, Selected)
+                                    RageUI.Button(('~b~Montrer ~s~ça carte d\'identité'), nil, {}, true, function(Hovered, Active, Selected)
                                         if (Selected) then
                                             local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
                         
@@ -580,13 +580,13 @@ function openMenu()
                                         end
                                     end)
             
-                                    RageUI.ButtonWithStyle(('~g~Regarder ~s~ça carte d\'identité'), nil, {}, true, function(Hovered, Active, Selected)
+                                    RageUI.Button(('~g~Regarder ~s~ça carte d\'identité'), nil, {}, true, function(Hovered, Active, Selected)
                                         if (Selected) then
                                             TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))
                                         end
                                     end)
 
-                                    RageUI.ButtonWithStyle(('~b~Montrer ~s~son permis de conduire'), nil, {}, true, function(Hovered, Active, Selected)
+                                    RageUI.Button(('~b~Montrer ~s~son permis de conduire'), nil, {}, true, function(Hovered, Active, Selected)
                                         if (Selected) then
                                             local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
                         
@@ -598,13 +598,13 @@ function openMenu()
                                         end
                                     end)
                         
-                                    RageUI.ButtonWithStyle(('~g~Regarder ~s~son permis de conduire'), nil, {}, true, function(Hovered, Active, Selected)
+                                    RageUI.Button(('~g~Regarder ~s~son permis de conduire'), nil, {}, true, function(Hovered, Active, Selected)
                                         if (Selected) then
                                             TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'driver')
                                         end
                                     end)
                         
-                                    RageUI.ButtonWithStyle(('~b~Montrer ~s~son PPA'), nil, {}, true, function(Hovered, Active, Selected)
+                                    RageUI.Button(('~b~Montrer ~s~son PPA'), nil, {}, true, function(Hovered, Active, Selected)
                                         if (Selected) then
                                             local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
                         
@@ -616,7 +616,7 @@ function openMenu()
                                         end
                                     end)
 
-                                    RageUI.ButtonWithStyle(('~g~Regarder ~s~son PPA'), nil, {}, true, function(Hovered, Active, Selected)
+                                    RageUI.Button(('~g~Regarder ~s~son PPA'), nil, {}, true, function(Hovered, Active, Selected)
                                         if (Selected) then
                                             local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
                         
@@ -639,7 +639,7 @@ function openMenu()
 
                     for i = 1, #ESX.PlayerData.accounts, 1 do
                         if ESX.PlayerData.accounts[i].name == 'black_money' then
-                            RageUI.ButtonWithStyle("~r~Donner~s~ de l'argent non-déclaré", nil, {RightBadge = RageUI.BadgeStyle.Lock}, true, function(Hovered,Active,Selected)
+                            RageUI.Button("~r~Donner~s~ de l'argent non-déclaré", nil, {RightBadge = RageUI.BadgeStyle.Lock}, true, function(Hovered,Active,Selected)
                                 if Selected then
                                     local black, quantity = CheckQuantity(KeyboardInput("Somme d'argent que vous voulez donner", '', '', 1000))
                                         if black then
@@ -663,7 +663,7 @@ function openMenu()
                             end
                         end)
     
-                        RageUI.ButtonWithStyle("~r~Jeter~s~ de l'argent non declaré", nil, {RightBadge = RageUI.BadgeStyle.Tick}, true, function(Hovered, Active, Selected)
+                        RageUI.Button("~r~Jeter~s~ de l'argent non declaré", nil, {RightBadge = RageUI.BadgeStyle.Tick}, true, function(Hovered, Active, Selected)
                             if Selected then
                                 local black, quantity = CheckQuantity(KeyboardInput("Somme d'argent que vous voulez jeter", '', '', 1000))
                                 if black then
@@ -685,14 +685,14 @@ function openMenu()
 
 
                     RageUI.IsVisible(RMenu:Get('inventory', 'portefeuille_work'), true, true, true, function()
-                        RageUI.ButtonWithStyle("Grade", nil, {RightLabel = "~b~"..ESX.PlayerData.job.grade_label .."~s~"}, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Grade", nil, {RightLabel = "~b~"..ESX.PlayerData.job.grade_label .."~s~"}, true, function(Hovered, Active, Selected)
                             if Selected then
                             end
                         end)
     
                         if ESX.PlayerData.job and ESX.PlayerData.job.name == 'ademo' then
     
-                        RageUI.ButtonWithStyle("Démisionner", nil, {RightBadge = RageUI.BadgeStyle.Alert, Color = { BackgroundColor = { 154, 0, 0, 0 } } }, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Démisionner", nil, {RightBadge = RageUI.BadgeStyle.Alert, Color = { BackgroundColor = { 154, 0, 0, 0 } } }, true, function(Hovered, Active, Selected)
                             if Selected then
                                 TriggerServerEvent("job:set", "unemployed")
                             end
@@ -701,12 +701,12 @@ function openMenu()
 
                         if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
 
-                        RageUI.ButtonWithStyle("Gestion d'entreprise", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                        RageUI.Button("Gestion d'entreprise", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                             if Selected then
                         end
                     end, RMenu:Get('inventory', 'boos'))
                 else
-                    RageUI.ButtonWithStyle("Gestion d'entreprise", nil, {RightBadge = RageUI.BadgeStyle.Lock}, false, function(Hovered, Active, Selected)
+                    RageUI.Button("Gestion d'entreprise", nil, {RightBadge = RageUI.BadgeStyle.Lock}, false, function(Hovered, Active, Selected)
                             if Selected then
                                 end
                             end)
@@ -722,7 +722,7 @@ function openMenu()
                          RageUI.Separator("[~b~"..ESX.PlayerData.job.label.."~s~] - [~g~"..societymoney.."$~s~]")
                      end
 
-                 RageUI.ButtonWithStyle('~r~Recruter~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                 RageUI.Button('~r~Recruter~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                      if (Selected) then
                          if ESX.PlayerData.job.grade_name == 'boss' then
                              local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
@@ -738,7 +738,7 @@ function openMenu()
                      end
                  end)
         
-                 RageUI.ButtonWithStyle('~g~Virer~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                 RageUI.Button('~g~Virer~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                      if (Selected) then
                          if ESX.PlayerData.job.grade_name == 'boss' then
                              local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
@@ -754,7 +754,7 @@ function openMenu()
                      end
                  end)
         
-                 RageUI.ButtonWithStyle('~p~Promouvoir~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                 RageUI.Button('~p~Promouvoir~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                     if (Selected) then
                          if ESX.PlayerData.job.grade_name == 'boss' then
                              local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
@@ -770,7 +770,7 @@ function openMenu()
                      end
                  end)
         
-                 RageUI.ButtonWithStyle('~g~Destituer~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
+                 RageUI.Button('~g~Destituer~s~ une personne proche de vous', nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                      if (Selected) then
                          if ESX.PlayerData.job.grade_name == 'boss' then
                              local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
@@ -791,7 +791,7 @@ function openMenu()
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'portefeuille_money'), true, true, true, function()
 
-                    RageUI.ButtonWithStyle("~b~Donner~s~ de l'argent liquide", nil, {RightBadge = RageUI.BadgeStyle.Lock}, true, function(Hovered,Active,Selected)
+                    RageUI.Button("~b~Donner~s~ de l'argent liquide", nil, {RightBadge = RageUI.BadgeStyle.Lock}, true, function(Hovered,Active,Selected)
                         if Selected then
                             local black, quantity = CheckQuantity(KeyboardInput("Somme d'argent que vous voulez donner", '', '', 1000))
                                 if black then
@@ -815,7 +815,7 @@ function openMenu()
                     end
                 end)
 
-                RageUI.ButtonWithStyle("~b~Jeter~s~ de l'argent liquide", nil, {RightBadge = RageUI.BadgeStyle.Tick}, true, function(Hovered, Active, Selected)
+                RageUI.Button("~b~Jeter~s~ de l'argent liquide", nil, {RightBadge = RageUI.BadgeStyle.Tick}, true, function(Hovered, Active, Selected)
                     if Selected then
                         local black, quantity = CheckQuantity(KeyboardInput("Somme d'argent que vous voulez jeter", '', '', 1000))
                         if black then
@@ -856,7 +856,7 @@ function openMenu()
                         ReloadColor()
                     end)
                 
-                    RageUI.ButtonWithStyle("Sauvegarder la couleur", nil, { RightBadge = RageUI.BadgeStyle.Tick }, true, function(Hovered, Active, Selected)
+                    RageUI.Button("Sauvegarder la couleur", nil, { RightBadge = RageUI.BadgeStyle.Tick }, true, function(Hovered, Active, Selected)
                         if Selected then
                             SetResourceKvpInt("menuR", menuColor[1])
                             SetResourceKvpInt("menuG", menuColor[2])
@@ -896,7 +896,7 @@ function openMenu()
                     end)
 
                     local ragdolling = false
-                    RageUI.ButtonWithStyle('Dormir / Se Reveiller', description, {RightLabel = "→"}, true, function(Hovered, Active, Selected) 
+                    RageUI.Button('Dormir / Se Reveiller', description, {RightLabel = "→"}, true, function(Hovered, Active, Selected) 
                         if (Selected) then
                             ragdolling = not ragdolling
                             while ragdolling do
@@ -914,7 +914,7 @@ function openMenu()
                 end
             end)
 
-             RageUI.ButtonWithStyle("Menu ~g~visuel", "Pour modifier votre visuel", {RightLabel = "→"}, true, function(Hovered, Active,Selected)
+             RageUI.Button("Menu ~g~visuel", "Pour modifier votre visuel", {RightLabel = "→"}, true, function(Hovered, Active,Selected)
                     if Selected then
                          end
                     end, RMenu:Get('inventory', 'visual'))
@@ -1049,36 +1049,36 @@ function openMenu()
                         table.insert( players, player )
                     end
 
-                    RageUI.ButtonWithStyle("Nombres de Citoyens :", description, {RightLabel = "[~r~ "..#players.." ~s~] joueur(s) en ~g~ligne"}, true, function(Hovered, Active, Selected) 
+                    RageUI.Button("Nombres de Citoyens :", description, {RightLabel = "[~r~ "..#players.." ~s~] joueur(s) en ~g~ligne"}, true, function(Hovered, Active, Selected) 
                         if (Selected) then 
                         end 
                     end)
 
-                    RageUI.ButtonWithStyle("Faire un report", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
+                    RageUI.Button("Faire un report", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
                         if (Selected) then 
                             local report = KeyboardInput("", '', '', 1000)
                             ExecuteCommand("report " ..report)
                         end 
                     end)
 
-                    RageUI.ButtonWithStyle('Touche Serveur', description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
+                    RageUI.Button('Touche Serveur', description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
                         if (Selected) then 
                             end 
                         end, RMenu:Get('inventory', 'tserv'))
 
-                        RageUI.ButtonWithStyle("Rejoindre le ~b~Discord", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
+                        RageUI.Button("Rejoindre le ~b~Discord", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
                             if (Selected) then 
                                 ExecuteCommand("discord")
                             end 
                         end)
 
-                        RageUI.ButtonWithStyle("Prendre en ~r~Otage", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
+                        RageUI.Button("Prendre en ~r~Otage", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
                             if (Selected) then 
                                 ExecuteCommand("otage")
                             end 
                         end)
 
-                        RageUI.ButtonWithStyle("Prendre sur le ~b~Dos", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
+                        RageUI.Button("Prendre sur le ~b~Dos", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
                             if (Selected) then 
                                 ExecuteCommand("carry")
                             end 
@@ -1096,42 +1096,42 @@ RageUI.IsVisible(RMenu:Get('inventory', 'tserv'), true, true, true, function()
         table.insert( players, player )
     end
 
-    RageUI.ButtonWithStyle("Ouvrir/Fermer Téléphone :", description, {RightLabel = "~b~F1"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Ouvrir/Fermer Téléphone :", description, {RightLabel = "~b~F1"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Gestion Carte SIM :", description, {RightLabel = "~b~F2"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Gestion Carte SIM :", description, {RightLabel = "~b~F2"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Gestion Animations :", description, {RightLabel = "~b~F3"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Gestion Animations :", description, {RightLabel = "~b~F3"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Ouvrir/Fermer Radio :", description, {RightLabel = "~b~F10"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Ouvrir/Fermer Radio :", description, {RightLabel = "~b~F10"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Screenshot :", description, {RightLabel = "~b~F11"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Screenshot :", description, {RightLabel = "~b~F11"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Lever les mains en l'air :", description, {RightLabel = "~b~X"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Lever les mains en l'air :", description, {RightLabel = "~b~X"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Pointer du doigt :", description, {RightLabel = "~b~B"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Pointer du doigt :", description, {RightLabel = "~b~B"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
 
-    RageUI.ButtonWithStyle("Tablette Police(Only) :", description, {RightLabel = "~b~DEL"}, true, function(Hovered, Active, Selected) 
+    RageUI.Button("Tablette Police(Only) :", description, {RightLabel = "~b~DEL"}, true, function(Hovered, Active, Selected) 
         if (Selected) then 
         end 
     end)
@@ -1142,9 +1142,9 @@ end)
                 ----------------------------------------------------------------------------------
 
                 RageUI.IsVisible(RMenu:Get('inventory', 'clothesbase'), true, true, true, function()
-                    RageUI.ButtonWithStyle("Vetements", nil, {RightLabel = "→"},true, function()
+                    RageUI.Button("Vetements", nil, {RightLabel = "→"},true, function()
                     end, RMenu:Get('inventory', 'clothes'))
-                    RageUI.ButtonWithStyle("Accessories", nil, {RightLabel = "→"},true, function()
+                    RageUI.Button("Accessories", nil, {RightLabel = "→"},true, function()
                     end, RMenu:Get('inventory', 'accessories'))
 
                   end)

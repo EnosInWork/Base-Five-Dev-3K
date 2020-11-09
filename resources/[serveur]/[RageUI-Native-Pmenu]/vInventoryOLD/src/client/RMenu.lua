@@ -44,29 +44,15 @@ function RMenu:Get(Type, Name)
     end
 end
 
----GetType
----@param Type string
----@return table
----@public
-function RMenu:GetType(Type)
-    if self[Type] ~= nil then
-        return self[Type]
-    end
-end
-
 ---Settings
 ---@param Type string
 ---@param Name string
 ---@param Settings string
----@param Value any optional
+---@param Value any
 ---@return void
 ---@public
 function RMenu:Settings(Type, Name, Settings, Value)
-    if Value ~= nil then
-        self[Type][Name][Settings] = Value
-    else
-        return self[Type][Name][Settings]
-    end
+    self[Type][Name][Settings] = Value
 end
 
 
@@ -77,7 +63,6 @@ end
 ---@public
 function RMenu:Delete(Type, Name)
     self[Type][Name] = nil
-    collectgarbage()
 end
 
 ---DeleteType
@@ -86,5 +71,4 @@ end
 ---@public
 function RMenu:DeleteType(Type)
     self[Type] = nil
-    collectgarbage()
 end
