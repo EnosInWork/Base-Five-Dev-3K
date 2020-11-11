@@ -1,12 +1,16 @@
-resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+fx_version 'adamant'
+
+game 'gta5'
 
 description 'ESX Property'
 
 version '1.0.4'
 
 server_scripts {
-	'@es_extended/locale.lua',
+	'@async/async.lua',
 	'@mysql-async/lib/MySQL.lua',
+	'@es_extended/locale.lua',
+	'locales/tr.lua',
 	'locales/de.lua',
 	'locales/br.lua',
 	'locales/en.lua',
@@ -21,6 +25,7 @@ server_scripts {
 
 client_scripts {
 	'@es_extended/locale.lua',
+	'locales/tr.lua',
 	'locales/de.lua',
 	'locales/br.lua',
 	'locales/en.lua',
@@ -34,6 +39,7 @@ client_scripts {
 }
 
 dependencies {
+	'async',
 	'es_extended',
 	'instance',
 	'cron',
