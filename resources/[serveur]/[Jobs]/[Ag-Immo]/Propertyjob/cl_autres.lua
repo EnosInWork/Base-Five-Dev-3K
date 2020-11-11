@@ -711,7 +711,7 @@ function facture()
         if type(amount) == 'number' then
             local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
                 local playerPed        = GetPlayerPed(-1)
-                TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_realestateagent', 'realestateagent', amount)
+                TriggerServerEvent('esx_billing:sendBill1', GetPlayerServerId(closestPlayer), 'society_realestateagent', 'realestateagent', amount)
                 ESX.ShowNotification('~g~Vous venez de mettre une facture a une personnes')		
             else        
                 ESX.ShowNotification('~r~ERREUR~s~: ~g~Aucun joueur à proximitée')

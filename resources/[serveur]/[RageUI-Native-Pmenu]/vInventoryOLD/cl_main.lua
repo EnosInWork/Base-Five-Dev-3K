@@ -1080,7 +1080,7 @@ function openMenu()
 
                         RageUI.Button("Prendre sur le ~b~Dos", description, {RightLabel = "→→"}, true, function(Hovered, Active, Selected) 
                             if (Selected) then 
-                                ExecuteCommand("carry")
+                                ExecuteCommand("porter")
                             end 
                         end)
 

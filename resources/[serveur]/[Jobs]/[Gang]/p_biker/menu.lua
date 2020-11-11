@@ -384,7 +384,7 @@ function spawnCar(car)
     end
 
     local x, y, z = table.unpack(GetEntityCoords(PlayerPedId(), false))
-    local vehicle = CreateVehicle(car, 484.54, -109.570, 74.29, 140.507, true, false)
+    local vehicle = CreateVehicle(car, 985.601, -109.89, 74.29, 140.507, true, false)
     SetPedIntoVehicle(PlayerPedId(), vehicle, -1)
     
     SetEntityAsNoLongerNeeded(vehicle)

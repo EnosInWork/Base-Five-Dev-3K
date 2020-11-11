@@ -19,7 +19,7 @@ function GeneratePlate()
 			generatedPlate = string.upper(GetRandomLetter(Config.PlateLetters) .. GetRandomNumber(Config.PlateNumbers))
 		end
 
-		ESX.TriggerServerCallback('esx_vehicleshop:isPlateTaken', function(isPlateTaken)
+		ESX.TriggerServerCallback('blue_vehicleshop:isPlateTaken', function (isPlateTaken)
 			if not isPlateTaken then
 				doBreak = true
 			end
@@ -37,7 +37,7 @@ end
 function IsPlateTaken(plate)
 	local callback = 'waiting'
 
-	ESX.TriggerServerCallback('esx_vehicleshop:isPlateTaken', function(isPlateTaken)
+	ESX.TriggerServerCallback('blue_vehicleshop:isPlateTaken', function(isPlateTaken)
 		callback = isPlateTaken
 	end, plate)
 
@@ -49,7 +49,7 @@ function IsPlateTaken(plate)
 end
 
 function GetRandomNumber(length)
-	Citizen.Wait(0)
+	Citizen.Wait(1)
 	math.randomseed(GetGameTimer())
 	if length > 0 then
 		return GetRandomNumber(length - 1) .. NumberCharset[math.random(1, #NumberCharset)]
@@ -59,7 +59,7 @@ function GetRandomNumber(length)
 end
 
 function GetRandomLetter(length)
-	Citizen.Wait(0)
+	Citizen.Wait(1)
 	math.randomseed(GetGameTimer())
 	if length > 0 then
 		return GetRandomLetter(length - 1) .. Charset[math.random(1, #Charset)]
